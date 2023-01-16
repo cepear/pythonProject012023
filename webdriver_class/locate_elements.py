@@ -11,7 +11,7 @@ driver = webdriver.Chrome(options=chrome_options)
 
 print("Maximizing the browser")
 driver.maximize_window()
-
+print("Starting test with various locators used im find_element() method")
 driver.get(host)
 time.sleep(2)
 
