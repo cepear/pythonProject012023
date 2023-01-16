@@ -11,6 +11,7 @@ chrome_options.add_experimental_option('detach', True)
 driver = webdriver.Chrome(options=chrome_options)
 print("Maximizing the browser")
 driver.maximize_window()
+driver.implicitly_wait(20)
 
 try:
     print("-----Starting test with WebDriver properties------------")
@@ -36,6 +37,37 @@ try:
     time.sleep(1)
     driver.refresh()
     print("We are here now: Google.com ", driver.current_url)
+    time.sleep(3)
+    print("--------Switching between browser windows (or tab)-----------")
+    # we are on  /browser-window page, get current window handle
+    driver.get(host)
+    first_window_handle = driver.current_window_handle
+    time.sleep(1)
+    print(" ID of the page opened: ", first_window_handle)
+    # click on the new tab button, this opens new tab
+    driver.find_element(By.ID, 'tabButton').click()
+    time.sleep(1)
+    # now we have 2 tabs, get window handles (list), tabs are in order handles=[id_of_first_tab, id_of_second_tab]
+    handles = driver.window_handles
+    print(" IDs of all tabs:", handles)
+    print("Current browser window ID :", driver.current_window_handle)
+    # switch to the second tab, switch to handles[1] or handle[-1]
+    print("--------------Here I am switching to new window---------")
+    driver.switch_to.window(handles[1])
+    print('Getting text of new page :', driver.find_element(By.ID, 'sampleHeading').text)
+    time.sleep(2)
+    print("Current URL :", driver.current_url)
+    time.sleep(2)
+    driver.switch_to.window(handles[0])
+    print("Switched to first window")
+    time.sleep(1)
+    print("Current URL :", driver.current_url)
+    driver.find_element(By.ID, 'windowButton').click()
+    new_window = driver.find_element(By.ID, 'sampleHeading').text
+    print("Text of pop up window is:", new_window)
+
+
+
 except (Exception) as err:
     print(err)
     print('Python Exception: Test failed with above error')
