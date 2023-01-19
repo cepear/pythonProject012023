@@ -49,6 +49,7 @@ try:
     time.sleep(1)
     # now we have 2 tabs, get window handles (list), tabs are in order handles=[id_of_first_tab, id_of_second_tab]
     handles = driver.window_handles
+    print("Number of handles found is: ", len(handles))
     print(" IDs of all tabs:", handles)
     print("Current browser window ID :", driver.current_window_handle)
     # switch to the second tab, switch to handles[1] or handle[-1]
@@ -64,7 +65,7 @@ try:
     print("Current URL :", driver.current_url)
     driver.find_element(By.ID, 'windowButton').click()
     new_window = driver.find_element(By.ID, 'sampleHeading').text
-    print("Text of pop up window is:", new_window)
+    print("Text of new  window is:", new_window)
 
 
 
