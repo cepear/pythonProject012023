@@ -28,7 +28,7 @@ try:
 
 
     # All Locators (all values are ID locators):
-    alert_button = 'alertButton'
+    alert_notify = 'alertButton'
     alert_confirm = 'confirmButton'
     confirm_result1 = 'confirmResult'
     alert_prompt = 'promtButton'
@@ -38,11 +38,58 @@ try:
     driver.get(HOST)
     time.sleep(5)
 
-    # click alert1 button, click OK button to close alert
+    print("Scenario 1: click alert1 button, click OK button to close alert")
+    driver.find_element(By.ID, alert_notify).click()
+    alert = driver.switch_to.alert
+    print(f"Text on the alert : , '{alert.text}'")
+    alert.accept()
+    print("-----------------------------")
+    time.sleep(5)
+
     # click alert 2 button, confirm the alert, verify OK button clicked in result text.
+    print("Scenario 2: click alert2 button, click OK button to close alert")
+    driver.find_element(By.ID, alert_confirm).click()
+    alert = driver.switch_to.alert
+    print(f"Text on the alert : , '{alert.text}'")
+    alert.accept()
+    result_msg = driver.find_element(By.ID, confirm_result1).text
+    print(f"Result message: {result_msg}")
+    print("------------------------------")
+    time.sleep(5)
+
     # click alert 2 button, dismiss the alert, verify Cancel button is clicked in result text.
+    print("Scenario 3: click alert2 button, click Cancel button to close alert")
+    driver.find_element(By.ID, alert_confirm).click()
+    alert = driver.switch_to.alert
+    print(f"Text on the alert : , '{alert.text}'")
+    alert.dismiss()
+    result_msg = driver.find_element(By.ID, confirm_result1).text
+    print(f"Result message: {result_msg}")
+    print("------------------------------")
+    time.sleep(5)
+
     # click alert 3 button, enter alert_input, click OK, verify alert_input message in result text.
+    print("Scenario 4: click alert3 button, click OK button to close alert")
+    driver.find_element(By.ID, alert_prompt).click()
+    alert = driver.switch_to.alert
+    print(f"Text on the alert : , '{alert.text}'")
+    alert.send_keys(alert_input)
+    alert.accept()
+    result_msg = driver.find_element(By.ID, prompt_result).text
+    print(f"Result message: {result_msg}")
+    print("------------------------------")
+    time.sleep(5)
+
     # click alert 3 button, dismiss alert_input, click OK, verify no result message.
+    print("Scenario 5: click alert3 button, click Cancel button to close alert")
+    driver.find_element(By.ID, alert_prompt).click()
+    alert = driver.switch_to.alert
+    #print(f"Text on the alert : , '{alert.text}'")
+    alert.dismiss()
+    #result_msg = driver.find_element(By.ID, prompt_result).text
+    #print(f"Result message: {result_msg}")
+    print("------------------------------")
+    time.sleep(5)
 
 
 
