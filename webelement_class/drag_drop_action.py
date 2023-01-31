@@ -49,8 +49,8 @@ try:
 
     # drag and drop object into the box
     actions = ActionChains(driver)
-    #actions.drag_and_drop(drag_obj, drop_obj).perform()
-    actions.click_and_hold(drag_obj).pause(2).release(drop_obj).perform()
+    actions.drag_and_drop(drag_obj, drop_obj).perform()
+    #actions.click_and_hold(drag_obj).pause(2).release(drop_obj).perform()   ---alt way for the above code.
     # verify drop box text after dropping, expected: 'Dropped'
     #print(f"Text in the droppable object is :", drop_obj).
     print(f"Text in the droppable object after is : {drop_obj.text}")
