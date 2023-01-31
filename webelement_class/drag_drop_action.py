@@ -9,7 +9,7 @@ from selenium.webdriver.support.select import Select
 
 #from utilities import *
 
-HOST = "https://www.globalsqa.com/demo-site/select-dropdown-menu/"
+HOST = "https://jqueryui.com/resources/demos/droppable/default.html"
 
 # created the object for chromedriver that talks to Chrome Browser
 chr_options = Options()
@@ -24,44 +24,28 @@ time.sleep(0)
 
 try:
     # Input DATA:
-    country1 = 'United States'
+
 
 
     # All Locators (all values are ID locators):
-    country_dd_tag = 'select'
+    draggable_id = 'draggable'
+    droppable_id = 'droppable'
+
 
   # Steps:
     driver.get(HOST)
-    time.sleep(5)
+    time.sleep(2)
     # disable_google_ads(driver)
 
-
-    # Code for the dropdown here
-
-    drop_down_elem = driver.find_element(By.TAG_NAME, country_dd_tag)
-    country_selection = Select(drop_down_elem)
-
-    print("check first selected option")
-    print('First selected option: ', country_selection.first_selected_option.text)
-    # select US from dropdown
-    print("Selecting by index 2")
-    country_selection.select_by_index(2)
-    print("Selected country:", country_selection.all_selected_options[0].text)
-    print("Selecting by value 'FRA'")
-    country_selection.select_by_value('FRA')
-    print("Selected country:", country_selection.all_selected_options[0].text)
-    print("Selecting by visible text 'United States")
-    country_selection.select_by_visible_text('United States')
-    print("# verify US is selected: get_all_selected option")
-    print("Selected country:", country_selection.all_selected_options[0].text)
-
-
-
+    # Code for the drag and drop will be here
+    # verify drop box text before dropping
+    # drag and drop object into the box
+    # verify drop box text after dropping
 
 
 
     time.sleep(2)
-    print("Dropdown Test completed successfully")
+    print("Drag and drop Test completed successfully")
 
 except Exception as err:
     time.sleep(10)
@@ -75,4 +59,3 @@ finally:
     # close all tabs:
     driver.quit()
     print("TEST Completed!!")
-
