@@ -9,9 +9,10 @@ import time
 
 from selenium.webdriver.support.select import Select
 
-#from utilities import *
+from utilities import *
 
 HOST = "https://jqueryui.com/resources/demos/droppable/default.html"
+scrshot_dir = '../screenshots/'
 
 # created the object for chromedriver that talks to Chrome Browser
 chr_options = Options()
@@ -37,6 +38,7 @@ try:
   # Steps:
     driver.get(HOST)
     time.sleep(2)
+    driver.save_screenshot(scrshot_dir+'dragdrop1.png')
     # disable_google_ads(driver)
 
     # Code for the drag and drop will be here
@@ -46,6 +48,8 @@ try:
     print(f"Text in the droppable object is :", drop_obj)
     print(f"Text in the droppable object before is :  {drop_obj.text}")
     assert drop_obj.text == 'Drop here', "Drop box text verification before drop action is failed"
+    driver.save_screenshot(scrshot_dir+'dragdrop2-before.png')
+
 
     # drag and drop object into the box
     actions = ActionChains(driver)
@@ -55,6 +59,8 @@ try:
     #print(f"Text in the droppable object is :", drop_obj).
     print(f"Text in the droppable object after is : {drop_obj.text}")
     assert drop_obj.text == 'Dropped!', "Drop box text verification after drop action is failed"
+    driver.save_screenshot(scrshot_dir+'dragdrop3-after.png')
+
 
 
 
@@ -65,10 +71,14 @@ except (FileNotFoundError, ZeroDivisionError)  as err:
     time.sleep(10)
     print("Python Exception: test failed with following exception.")
     print(err)
-except Exception as err:
+    driver.save_screenshot(scrshot_dir+'PythonException.png')
+
+except (NoSuchElementException, TimeoutException) as err:
     time.sleep(10)
     print("Selenium Exception: test failed with following exception.")
     print(err)
+    driver.save_screenshot(scrshot_dir+'SeleniumException.png')
+
 finally:
     # close all tabs:
     driver.quit()
