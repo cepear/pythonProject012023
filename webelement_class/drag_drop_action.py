@@ -3,6 +3,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import *
+from selenium.webdriver.common.action_chains import ActionChains
+
 import time
 
 from selenium.webdriver.support.select import Select
@@ -38,20 +40,32 @@ try:
     # disable_google_ads(driver)
 
     # Code for the drag and drop will be here
-    # verify drop box text before dropping
+    # verify drop box text before dropping, expected: 'Drop here'
+    drag_obj = driver.find_element(By.ID, draggable_id)
+    drop_obj = driver.find_element(By.ID, droppable_id)
+    print(f"Text in the droppable object is :", drop_obj)
+    print(f"Text in the droppable object before is :  {drop_obj.text}")
+    assert drop_obj.text == 'Drop here', "Drop box text verification before drop action is failed"
+
     # drag and drop object into the box
-    # verify drop box text after dropping
+    actions = ActionChains(driver)
+    #actions.drag_and_drop(drag_obj, drop_obj).perform()
+    actions.click_and_hold(drag_obj).pause(2).release(drop_obj).perform()
+    # verify drop box text after dropping, expected: 'Dropped'
+    #print(f"Text in the droppable object is :", drop_obj).
+    print(f"Text in the droppable object after is : {drop_obj.text}")
+    assert drop_obj.text == 'Dropped!', "Drop box text verification after drop action is failed"
 
 
 
     time.sleep(2)
     print("Drag and drop Test completed successfully")
 
-except Exception as err:
+except (FileNotFoundError, ZeroDivisionError)  as err:
     time.sleep(10)
     print("Python Exception: test failed with following exception.")
     print(err)
-except (NoSuchElementException, TimeoutException) as err:
+except Exception as err:
     time.sleep(10)
     print("Selenium Exception: test failed with following exception.")
     print(err)
