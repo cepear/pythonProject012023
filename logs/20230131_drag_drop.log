@@ -1,0 +1,28 @@
+2023-01-31 16:58:54,853 [INFO]: verify drop box text before dropping, expected: 'Drop here'
+2023-01-31 16:58:54,899 [WARNING]: Text in the droppable object before is :  Drop here
+2023-01-31 17:02:27,292 [INFO]: verify drop box text before dropping, expected: 'Drop here'
+2023-01-31 17:02:27,327 [WARNING]: Text in the droppable object before is :  Drop here
+2023-01-31 17:04:02,688 [INFO]: verify drop box text before dropping, expected: 'Drop here'
+2023-01-31 17:04:02,720 [WARNING]: Text in the droppable object before is :  Drop here
+2023-01-31 17:04:02,728 [ERROR]: Drop box text verification before drop action is failed
+2023-01-31 17:24:11,134 [INFO]: *****************Drag and drop scenario started*******************
+2023-01-31 17:24:12,398 [WARNING]: maximizing the browser window
+2023-01-31 17:24:14,995 [INFO]: verify drop box text before dropping, expected: 'Drop here'
+2023-01-31 17:24:15,085 [WARNING]: Text in the droppable object before is :  Drop here
+2023-01-31 17:24:15,093 [ERROR]: Drop box text verification before drop action is failed
+2023-01-31 17:24:17,279 [INFO]: TEST Completed!!
+2023-01-31 17:39:12,157 [INFO]: *****************Drag and drop scenario started*******************
+2023-01-31 17:39:13,514 [WARNING]: maximizing the browser window
+2023-01-31 17:39:16,196 [INFO]: verify drop box text before dropping, expected: 'Drop here'
+2023-01-31 17:39:16,232 [INFO]: Text in the droppable object before is :  Drop here
+2023-01-31 17:39:16,239 [ERROR]: Drop box text verification before drop action is failed
+2023-01-31 17:39:18,389 [INFO]: TEST Completed!!
+2023-01-31 17:40:03,680 [INFO]: *****************Drag and drop scenario started*******************
+2023-01-31 17:40:04,987 [WARNING]: maximizing the browser window
+2023-01-31 17:40:07,586 [INFO]: verify drop box text before dropping, expected: 'Drop here'
+2023-01-31 17:40:07,619 [INFO]: Text in the droppable object before is :  Drop here
+2023-01-31 17:40:07,764 [INFO]: drag and drop object into the box
+2023-01-31 17:40:08,315 [INFO]: verify drop box text after dropping, expected: 'Dropped'
+2023-01-31 17:40:08,324 [INFO]: Text in the droppable object after is : Dropped!
+2023-01-31 17:40:10,463 [INFO]: Drag and drop Test completed successfully
+2023-01-31 17:40:12,632 [INFO]: TEST Completed!!
