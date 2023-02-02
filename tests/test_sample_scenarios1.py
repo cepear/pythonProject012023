@@ -1,19 +1,19 @@
 import pytest
 print("Starting simple pytest scenario")
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope='package')
 def greet():
-    print("--------Set Up!")
-    return 'Hellooo Test Master!'
+    print("\n--------Set Up!")
+    print('Hellooo Test Master!')
     yield [2,3,4]
-    print("---------Tear Down! ")
+    print("\n---------Tear Down! ")
     print("Fixture steps are completed!")
 
 @pytest.mark.sanitytest
 @pytest.mark.scen1
 @pytest.mark.scen1case1
 def test_scen1_case1(greet):
-    print('test_scen1_case1 starting!')
+    print('\ntest_scen1_case1 starting!')
     print(greet)
     greet.append(5)
     print(greet)
@@ -23,7 +23,7 @@ def test_scen1_case1(greet):
 @pytest.mark.scen1
 @pytest.mark.scen1case2
 def test_scen1_case2(greet):
-    print("test_scen1_case2 is started")
+    print("\ntest_scen1_case2 is started")
     print(greet)
     greet.append(6)
     print(greet)
