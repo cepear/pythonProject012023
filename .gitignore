@@ -1,2 +1,4 @@
 .idea
 sampleFile/
+.pytest_cache
+__pycache__/
