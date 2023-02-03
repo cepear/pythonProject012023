@@ -18,11 +18,14 @@ driver.maximize_window()
 driver.get("https://www.google.com/")
 time.sleep(2)
 #
-search_box = driver.find_element(By.NAME, "q")
-search_box.send_keys("selenium")
-# search_box.send_keys("selenium"+Keys.RETURN) this is another option for keyboard actions ENTER=RETURN
-search_box.send_keys(Keys.ENTER)
-time.sleep(2)
+def search_google(keyword):
+    search_box = driver.find_element(By.NAME, "q")
+    search_box.send_keys("selenium")
+    # search_box.send_keys("selenium"+Keys.RETURN) this is another option for keyboard actions ENTER=RETURN
+    search_box.send_keys(Keys.ENTER)
+    time.sleep(2)
+
+search_google("selenium")
 
 result = driver.find_element(By.ID, 'result-stats')
 print(f"Search is done and result text is : {result.text}")
