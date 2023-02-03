@@ -4,11 +4,10 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import *
 import time
+from src.utilities import*
 
-#from utilities import *
 
 HOST = "https://demoqa.com/automation-practice-form"
-
 # created the object for chromedriver that talks to Chrome Browser
 chr_options = Options()
 chr_options.add_experimental_option("detach", True)
@@ -120,7 +119,7 @@ except (NoSuchElementException, TimeoutException) as err:
     time.sleep(10)
     print("Selenium Exception: test failed with following exception.")
     print(err)
+
 finally:
-    # close all tabs:
     driver.quit()
     print("TEST Completed!!")
