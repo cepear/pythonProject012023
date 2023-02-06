@@ -51,7 +51,7 @@ try:
     # let all ads load
     time.sleep(5)
     # after loading all ads this step will go through all of them and disable
-    #disable_google_ads(driver)
+    disable_google_ads(driver)
 
     print("Starting test with various properties and methods for WebElement class.")
     # driver.execute_script("document.body.style.zoom='0.9'")
