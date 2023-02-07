@@ -1,16 +1,12 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import *
 from selenium.webdriver.common.action_chains import ActionChains
-import time
-from selenium.webdriver.support.select import Select
-from utilities import *
+from src.utilities import *
 
 
 HOST = "https://jqueryui.com/resources/demos/droppable/default.html"
-scrshot_dir = '../screenshots/'
+scrshot_dir = '../../../screenshots/'
 #logfile = '../logs/20230131_drag_drop.log'    - this is hard coded, line above will generate new file name for each day
 logfile = f'../logs/{get_str_day()}_drag_drop.log'
 log = create_logger(logfile)

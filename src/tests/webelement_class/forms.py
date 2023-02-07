@@ -4,11 +4,10 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import *
 import time
+from src.utilities import*
 
-#from utilities import *
 
 HOST = "https://demoqa.com/automation-practice-form"
-
 # created the object for chromedriver that talks to Chrome Browser
 chr_options = Options()
 chr_options.add_experimental_option("detach", True)
@@ -52,7 +51,7 @@ try:
     # let all ads load
     time.sleep(5)
     # after loading all ads this step will go through all of them and disable
-    #disable_google_ads(driver)
+    disable_google_ads(driver)
 
     print("Starting test with various properties and methods for WebElement class.")
     # driver.execute_script("document.body.style.zoom='0.9'")
@@ -120,7 +119,7 @@ except (NoSuchElementException, TimeoutException) as err:
     time.sleep(10)
     print("Selenium Exception: test failed with following exception.")
     print(err)
+
 finally:
-    # close all tabs:
     driver.quit()
     print("TEST Completed!!")
