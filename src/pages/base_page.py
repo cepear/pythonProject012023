@@ -13,24 +13,7 @@ class BasePage():
     - base page will contain a lot of wrapper functions
     """
 
-# All Locators (all values are ID locators):
-    fn_input = 'firstName'
-    ln_input = 'lastName'
-    email_input = 'userEmail'
-    gender_male_xpath = '//input[@id="gender-radio-1"]/..'
-    mobile_number_input = 'userNumber'
-    date_of_birth_input = 'dateOfBirthInput'
-    hobbies_sp_xpath = '//input[@id="hobbies-checkbox-1"]/..'
-    hobbies_reading_xpath = '//input[@id="hobbies-checkbox-2"]/..'
-    upload_pic_input = 'uploadPicture'
-    address_textarea = 'currentAddress'
-    state_list = 'state'
-    state_input = 'react-select-3-input'
-    city_list = 'city'
-    city_input = 'react-select-4-input'
-    submit_button = 'submit'
-    confirmation_msg = 'example-modal-sizes-title-lg'
-    close_cm_button = 'closeLargeModal'
+
 
     def __init__(self, driver):
         self.driver = driver
@@ -92,7 +75,9 @@ class BasePage():
         try:
             log.info("Getting text by ID...")
             element = self.wdwait.until(EC.presence_of_element_located((By.ID)))
-            result = element.text
+            self.driver.execute_script("arguments[0].scrollIntoView();", element)
+            self.driver.execute_script("arguments[0].click();", element)    # 1st option
+            result = element.text                                           # 2 nd option
             log.info(f"Returning the text.", id)
             return  element.text
 
