@@ -1,7 +1,7 @@
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import *
 from src.utilities import*
-from src.pages.forms_page import FormPage
+from src.pages_Classes.forms_page import FormPage
 import pytest
 
 
@@ -28,7 +28,7 @@ def test_forms_case1(driver):
         time.sleep(5)
         disable_google_ads(driver)
         print("Starting test with various properties and methods for WebElement class.")
-        # enter first name , last name and email
+
         form_page.enter_first_name('Delete me Please')
         time.sleep(5)
         form_page.enter_first_name(first_name)
@@ -36,16 +36,15 @@ def test_forms_case1(driver):
         form_page.enter_last_name(last_name)
         form_page.enter_email(email)
         form_page.select_gender("male")
-        # select radio button Gender=Male
-        # mobile_number = 9876543210
+
         form_page.enter_mobile_number('9876543210')
-        # select checkboxes, select Sports, Reading
+
         form_page.select_hobbies(['sports', 'reading'])
-        # enter message in text_area = '2906 Shell Road, 12224'
+
         form_page.enter_current_address('2906 Shell Road, 12224')
-        # check is City list is enabled.
+
         form_page.select_state_city('NCR', 'Delhi')
-        # select state=NCR
+
         time.sleep(2)
         form_page.click_submit()
         time.sleep(5)

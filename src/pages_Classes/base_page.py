@@ -9,7 +9,7 @@ class BasePage():
     """
     - abstract model (python class that includes common functions for selenium
     - 'page': python class that represents the attributes and methods
-    - other pages will inherit base_page, hence they will share the common
+    - other pages_Classes will inherit base_page, hence they will share the common
     - base page will contain a lot of wrapper functions
     """
 

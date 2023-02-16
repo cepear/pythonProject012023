@@ -1,4 +1,4 @@
-from src.pages.base_page import BasePage
+from src.pages_Classes.base_page import BasePage
 from src.utilities import *
 from selenium.webdriver.common.keys import Keys
 
