@@ -5,8 +5,6 @@ from src.pages_Classes.forms_page import FormPage
 import pytest
 
 
-
-
 filepath1 = ROOT_DIR + '/data/forms.yml'
 data = load_yaml_file(filepath1)
 

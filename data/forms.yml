@@ -3,3 +3,8 @@ case1:
   first_name: 'john'
   last_name: 'doe'
   email: 'jdoe@email.com'
+
+case2:
+  host: "https://demoqa.com/login"
+  username: 'anna'
+  password: 'Login@123'

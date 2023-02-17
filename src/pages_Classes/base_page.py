@@ -42,6 +42,20 @@ class BasePage():
             log.error("Selenium Exception: test failed with following exception. \n{err}")
             print(err)
 
+    def enter_text_by_xpath(self, xpath, text):
+        """General function to click on any element found by XPATH"""
+        try:
+            log.info("Clicking element by XPATH...")
+            # element = self.driver.find_element(By.ID, id) this regular way of finding element
+            element = self.wdwait.until(EC.element_to_be_clickable((By.XPATH)))
+            element.click()
+            log.info(f"Element is clicked", xpath)
+
+        except (NoSuchElementException, TimeoutException) as err:
+            time.sleep(10)
+            log.error("Selenium Exception: test failed with following exception. \n{err}")
+            print(err)
+
     def click_element_by_id(self, id):
         """General function to click on any element found by ID"""
         try:
@@ -57,11 +71,11 @@ class BasePage():
             print(err)
 
     def click_element_by_xpath(self, xpath):
-        """General function to click on any element found by XPATH"""
+        """General function to click on any element found by ID"""
         try:
-            log.info("Clicking element by XPATH...")
+            log.info("Clicking element by ID...")
             # element = self.driver.find_element(By.ID, id) this regular way of finding element
-            element = self.wdwait.until(EC.element_to_be_clickable((By.XPATH)))
+            element = self.wdwait.until(EC.element_to_be_clickable((By.ID)))
             element.click()
             log.info(f"Element is clicked", xpath)
 
@@ -69,6 +83,7 @@ class BasePage():
             time.sleep(10)
             log.error("Selenium Exception: test failed with following exception. \n{err}")
             print(err)
+
 
     def get_text_by_id(self, id):
         """General function to get text from any  found by ID"""
